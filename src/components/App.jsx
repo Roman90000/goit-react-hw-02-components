@@ -41,13 +41,18 @@ export class App extends Component {
         <h1>Please leave feedback</h1>
         <FeedbackOptions options={this.addState} />
         <h2>Statistics</h2>
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={total}
-          positivePercentage={positive}
-        />
+        {!total ? (
+          'There is no feedback'
+        ) : (
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={total}
+            positivePercentage={positive}
+          />
+        )}
+
         <GlobalStyle />
       </div>
     );
